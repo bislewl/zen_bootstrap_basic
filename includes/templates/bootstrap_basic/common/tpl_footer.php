@@ -20,9 +20,9 @@ if (!isset($flag_disable_footer) || !$flag_disable_footer) {
                 <ul class="nav navbar-nav footerNav">
                     <li>Products
                         <ul>
-                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=1'); ?>"><i class="fa fa-square"></i> Shipping Boxes</a></li>
-                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=2'); ?>"><i class="fa fa-square"></i> Mailers</a></li>
-                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=3'); ?>"><i class="fa fa-square"></i> Cake Boxes</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=1'); ?>"><i class="fa fa-square"></i> Category 1</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=2'); ?>"><i class="fa fa-square"></i> Category 2</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=3'); ?>"><i class="fa fa-square"></i> Category 3</a></li>
                         </ul>
                     </li>
                     <li>Customer Service
@@ -50,10 +50,10 @@ if (!isset($flag_disable_footer) || !$flag_disable_footer) {
                     </li>
                     <li>Social Media
                         <ul>
-                            <li><a href="<?php echo BOX_PRINTING_FACEBOOK_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href="<?php echo BOX_PRINTING_TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
-                            <li><a href="<?php echo BOX_PRINTING_PINTEREST_LINK; ?>" target="_blank"><i class="fa fa-pinterest"></i> Pinterest</a></li>
-                            <li><a href="<?php echo BOX_PRINTING_YOUTUBE_LINK; ?>" target="_blank"><i class="fa fa-youtube"></i> YouTube</a></li>
+                            <li><a href="<?php echo BOOTSTRAP_BASIC_FACEBOOK_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+                            <li><a href="<?php echo BOOTSTRAP_BASIC_TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="<?php echo BOOTSTRAP_BASIC_PINTEREST_LINK; ?>" target="_blank"><i class="fa fa-pinterest"></i> Pinterest</a></li>
+                            <li><a href="<?php echo BOOTSTRAP_BASIC_YOUTUBE_LINK; ?>" target="_blank"><i class="fa fa-youtube"></i> YouTube</a></li>
                         </ul>
                     </li>
                 </ul>

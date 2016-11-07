@@ -5,7 +5,7 @@
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version Author: bislewl  9/15/2016 2:57 PM Modified in box_printing
+ * @version Author: bislewl  9/15/2016 2:57 PM Modified in zen_bootstrap_basic
  */
 
 include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));

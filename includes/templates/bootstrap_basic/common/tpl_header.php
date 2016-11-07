@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li class="hidden-xs hidden-sm" id="headerMiddlePhone">
-                        <a href="tel:8003705591">800.370.5591</a>
+                        <a href="tel:8005551212">800-555-1212</a>
                     </li>
                     <li class="headerMiddleRight hidden-xs hidden-sm">
                         <a href="<?php echo zen_href_link(FILENAME_SHOPPING_CART); ?>"><i

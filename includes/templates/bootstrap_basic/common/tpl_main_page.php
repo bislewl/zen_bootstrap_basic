@@ -161,9 +161,4 @@ if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW
     $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
     ?>
 </div>
-<?php
-if (GOOGLE_ANALYTICS_TRACKING_TYPE != "Asynchronous") {
-    require(DIR_WS_TEMPLATE . 'google_analytics/google_analytics.php');
-}
-?>
 </body>
