@@ -33,7 +33,8 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
     <meta name="description" content="<?php echo META_TAG_DESCRIPTION; ?>"/>
     <meta http-equiv="imagetoolbar" content="no"/>
     <meta name="author" content="<?php echo STORE_NAME ?>"/>
-    <meta name="generator" content="shopping cart program by Zen Cart&reg;, http://www.zen-cart.com eCommerce"/>
+    <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com"/>
+    <link rel="dns-prefetch" href="https://code.jquery.com"/>
     <?php if (defined('ROBOTS_PAGES_TO_SKIP') && in_array($current_page_base, explode(",", constant('ROBOTS_PAGES_TO_SKIP'))) || $current_page_base == 'down_for_maintenance' || $robotsNoIndex === true) { ?>
         <meta name="robots" content="noindex, nofollow"/>
     <?php } ?>
@@ -60,9 +61,10 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
         echo '<link rel="alternate" href="' . ($this_is_home_page ? zen_href_link(FILENAME_DEFAULT, 'language=' . $key, $request_type) : $canonicalLink . '&amp;language=' . $key) . '" hreflang="' . $key . '" />' . "\n";
     }
     // EOF hreflang for multilingual sites
-?>
+    ?>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <?php
     /**
      * load all template-specific stylesheets, named like "style*.css", alphabetically
@@ -119,10 +121,8 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
 
     /** CDN for jQuery & bootstrap **/
     ?>
-    <script
-        type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"%3E%3C/script%3E'));</script>
-    <script
-        type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"%3E%3C/script%3E'));</script>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script
         type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'); ?>/jquery.min.js"%3E%3C/script%3E'));</script>
 

@@ -13,34 +13,54 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
 if (!isset($flag_disable_footer) || !$flag_disable_footer) {
     ?>
     <!--bof-navigation display -->
-    <div class="row">
-        <div id="navSuppWrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div id="navSupp">
-                <ul>
-                    <li><?php echo '<a href="' . HTTP_SERVER . DIR_WS_CATALOG . '">'; ?><?php echo HEADER_TITLE_CATALOG; ?></a></li>
-                    <?php if (EZPAGES_STATUS_FOOTER == '1' or (EZPAGES_STATUS_FOOTER == '2' and (strstr(EXCLUDE_ADMIN_IP_FOR_MAINTENANCE, $_SERVER['REMOTE_ADDR'])))) { ?>
-                        <li><?php require($template->get_template_dir('tpl_ezpages_bar_footer.php', DIR_WS_TEMPLATE, $current_page_base, 'templates') . '/tpl_ezpages_bar_footer.php'); ?></li>
-                    <?php } ?>
+    <div id="footerRow">
+        <div class="container">
+
+            <nav class="navbar navbar-default navbar-bottom" role="navigation">
+                <ul class="nav navbar-nav footerNav">
+                    <li>Products
+                        <ul>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=1'); ?>"><i class="fa fa-square"></i> Shipping Boxes</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=2'); ?>"><i class="fa fa-square"></i> Mailers</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, 'cPath=3'); ?>"><i class="fa fa-square"></i> Cake Boxes</a></li>
+                        </ul>
+                    </li>
+                    <li>Customer Service
+                        <ul>
+                            <li><a href="<?php echo zen_href_link(FILENAME_CONTACT_US); ?>"><i class="fa fa-phone"></i> Contact Us</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_ACCOUNT); ?>"><i class="fa fa-user"></i> My Account</a></li>
+                        </ul>
+                    </li>
+                    <li>Payment
+                        <ul>
+                            <li><i class="fa fa-cc-visa"></i>
+                            <i class="fa fa-cc-mastercard"></i>
+                            <i class="fa fa-cc-amex"></i>
+                            <i class="fa fa-cc-paypal"></i></li>
+                        </ul>
+                    </li>
+                    <li>Policies & Privacy
+                        <ul>
+                            <li><a href="<?php echo zen_href_link(FILENAME_SHIPPING)?>"><i class="fa fa-refresh"></i> Shipping & Returns</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_PRIVACY); ?>"><i class="fa fa-shield"></i> Privacy</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_FREQUENTLY_ASKED_QUESTIONS); ?>"><i class="fa fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_CONDITIONS); ?>"><i class="fa fa-book"></i> Conditions of Use</a></li>
+                            <li><a href="<?php echo zen_href_link(FILENAME_SITE_MAP); ?>"><i class="fa fa-map-marker"></i> Site Map</a></li>
+                        </ul>
+                    </li>
+                    <li>Social Media
+                        <ul>
+                            <li><a href="<?php echo BOX_PRINTING_FACEBOOK_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+                            <li><a href="<?php echo BOX_PRINTING_TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="<?php echo BOX_PRINTING_PINTEREST_LINK; ?>" target="_blank"><i class="fa fa-pinterest"></i> Pinterest</a></li>
+                            <li><a href="<?php echo BOX_PRINTING_YOUTUBE_LINK; ?>" target="_blank"><i class="fa fa-youtube"></i> YouTube</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </div>
+            </nav>
         </div>
     </div>
     <!--eof-navigation display -->
-
-    <!--bof-ip address display -->
-    <?php
-    if (SHOW_FOOTER_IP == '1') {
-        ?>
-        <div class="row">
-            <div id="siteinfoIP" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php echo TEXT_YOUR_IP_ADDRESS . '  ' . $_SERVER['REMOTE_ADDR']; ?>
-            </div>
-        </div>
-
-        <?php
-    }
-    ?>
-    <!--eof-ip address display -->
     <!--bof-banner #5 display -->
     <?php
     if (SHOW_BANNERS_GROUP_SET5 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET5)) {
@@ -58,12 +78,15 @@ if (!isset($flag_disable_footer) || !$flag_disable_footer) {
     ?>
     <!--eof-banner #5 display -->
 
-    <div class="row">
-        <!--bof- site copyright display -->
-        <div id="siteinfoLegal" class="legalCopyright col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <?php echo FOOTER_TEXT_BODY; ?>
+    <div class="container-fluid" id="footerCopyright">
+        <div class="container">
+
+            <!--bof- site copyright display -->
+            <div id="siteinfoLegal" class="legalCopyright col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <?php echo FOOTER_TEXT_BODY; ?>
+            </div>
+            <!--eof- site copyright display -->
         </div>
-        <!--eof- site copyright display -->
     </div>
     <?php
 }

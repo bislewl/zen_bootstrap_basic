@@ -1,0 +1,302 @@
+#mainWrapper{
+    padding:0px;
+}
+.headerMiddleWideRow{
+    width:100%;
+}
+.headerMiddleWideRow li.headerMiddleRight{
+    float:right;
+    background:#f8f8f8;
+    margin-top:15px;
+    border:1px solid #e7e7e7;
+}
+.topNavigation ul li.headerMiddleRight:hover{
+    background:#e7e7e7;
+}
+.topNavigation ul li.headerMiddleRight:hover a{
+    color:#777777;
+}
+.headerMiddleContainer{
+    padding:0px;
+    background:#ffffff;
+}
+#headerMiddleLogo:hover{
+    background:#ffffff;
+}
+#headerQuoteButton{
+    background:red;
+    color:#ffffff;
+    font-size:15px;
+    border:1px solid red;
+}
+#headerQuoteButton a{
+    color:#ffffff;
+    font-weight:bold;
+}
+#headerQuoteButton:hover{
+    background:#ffffff;
+    color:red;
+}
+#headerQuoteButton:hover a{
+    color:red;
+}
+.w-100{
+    width:100%;
+}
+.categoryListBoxContents{
+    padding:0px 5%;
+    text-align:center;
+}
+.categoryListBoxContents a{
+    color:#000000;
+    text-decoration:none;
+    font-size:1.25em;
+    font-weight:bold;
+}
+.categoryListBoxContents a img{
+    max-width:100%;
+    height:200px;
+    width:auto;
+}
+#lowerNavigationMenu{
+    width:100%;
+}
+.topNavigation ul li:hover{
+    background:#c85127;
+    color:#ffffff;
+}
+.topNavigation ul li:hover a, .topNavigation > ul > li > a:hover, .topNavigation ul li a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover{
+    color:#ffffff;
+}
+li#headerMiddlePhone:hover{
+    background:transparent;
+}
+li#headerMiddlePhone a{
+    font-size:40px;
+    color:#c85127;
+    font-weight:bold;
+    margin-top:25px;
+    border-left:2px solid #c85127;
+}
+.buttonGetStarted{
+    background:#c85127;
+    color:#ffffff;
+    width:100%;
+    font-weight:bold;
+    border:1px solid #412412;
+}
+.buttonGetStarted:hover{
+    background:#ffffff;
+    color:#c85127;
+}
+h2.centerBoxHeading{
+    background:#c85127;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:16px;
+    text-align:center;
+    margin:0px;
+    padding:10px;
+}
+div#indexCategoriesMainContent{
+    margin-top:20px;
+    border:#f8f8f8 3px solid;
+    padding:20px;
+}
+.centerBoxContentsNew{
+    padding:0px 5%;
+    text-align:center;
+}
+.centerBoxContentsNew a{
+    color:#000000;
+    text-decoration:none;
+    font-size:1.25em;
+    font-weight:bold;
+}
+.centerBoxContentsNew a img{
+    max-width:100%;
+    height:200px;
+    width:auto;
+}
+#footerRow{
+    border-top:2px solid #412412;
+    margin-top:20px;
+    background:#f8f8f8;
+}
+.footerNav{
+}
+.navbar-bottom{
+    border:none;
+}
+.footerNav li{
+    color:#c85127;
+    padding:5px;
+    font-size:18px;
+    font-weight:bold;
+    min-width:205px;
+}
+.footerNav li ul{
+    padding-left:5px;
+}
+.footerNav li ul li{
+    font-size:14px;
+    padding:0px;;
+    font-weight:500;
+    color:#000000;
+    list-style:none;
+}
+.footerNav li ul li a{
+    font-size:1em;
+    padding:0px;;
+    font-weight:500;
+    color:#000000;
+    text-decoration:none;
+}
+#footerCopyright{
+    background:#f8f8f8;
+}
+#siteinfoLegal{
+    border-top:1px solid #c85127;
+}
+h1#productListHeading{
+    border-bottom:1px solid #c85127;
+    color:#412412;
+    font-size:22px;
+    text-align:center;
+    padding:5px;
+}
+div#productListing table{
+    border:2px solid #c85127;
+    border-radius:3px;
+    background:rgba(0, 0, 0, .075);
+}
+.productListing-heading{
+    padding:6px 2px;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:bold;
+    background:#c85127;
+    text-align:center;
+}
+.productListing-heading div{
+    font-size:14px;
+    border-top:1px solid #ffffff;
+    margin-top:4px;
+}
+td.productListing-data a{
+    font-size:14px;
+    color:#000000;
+    font-weight:bold;
+}
+td.productListing-data a:hover{
+    text-decoration:none;
+}
+td.productListing-data{
+    border:0.5px solid #c85127;
+}
+td.productListing-data{
+    border-bottom:1px solid #c85127;
+    text-align:center;
+    vertical-align:middle !important;
+}
+.productListing-data button{
+    background:#c85127;
+    border:#c85127 1px solid;
+    border-radius:3px;
+    padding:5px 20px;
+    margin:2px 8px;
+    color:#ffffff;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+.productListing-data button:hover{
+    background:#ffffff;
+    padding:5px 20px;
+    margin:2px 8px;
+    color:#c85127;
+}
+div#productMainImage img{
+    max-width:100%;
+    height:auto;
+}
+h4.optionName.back{
+    margin:10px 0px 0px 0px;
+    font-weight:700;
+}
+h4.optionName.back img{
+    display:none;
+}
+.wrapperAttribsOptions{
+    padding:5px;
+    border-radius:0;
+    background:#f8f8f8;
+    border:0px;
+    border-bottom:1px solid #e7e7e7;
+    /*border-right: 1px solid #E7E7E7;*/
+}
+.wrapperAttribsOptions .back textarea{
+    width:100%;
+}
+#productDescription{
+    margin:18px 0px;
+    border:1px solid #c85127;
+    padding:0px;
+    border-radius:5px;
+}
+#productDescriptionHeadline{
+    background:#c85127;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:16px;
+    text-align:center;
+    margin:0px;
+    padding:10px;
+}
+#productDescriptionDetails{
+    padding:8px;
+    background:rgba(0, 0, 0, .05);
+    overflow-wrap:break-word;
+}
+div#contact-form-wrapper button{
+    background:#c85127;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:16px;
+    float:right;
+    border:1px solid #c85127;
+}
+div#contact-form-wrapper button:hover{
+    background:#ffffff;
+    color:#c85127;
+}
+#indexProductListCatDescription{
+    margin-top:10%;
+}
+#productQty{
+    margin-left:auto;
+    margin-right:auto;
+    max-width:200px;
+}
+.slider.slider-horizontal{
+    margin-left:20px;
+}
+.slider-track{
+    background:#ffffff;
+}
+#productinfoBody input[type="submit"]{
+    display:none;
+}
+#cartAdd{
+    float:right;
+}
+h2#productPricesSecond{
+    float:left;
+}
+#shoppingCartButtons, #shoppingCartButtons button{
+    text-align:center;
+    margin-bottom:5px;
+}
+.wrapperAttribsQtyPrices{
+    display:none;
+}

@@ -34,10 +34,6 @@ $footer_template = 'tpl_footer.php';
 $left_column_file = 'column_left.php';
 $right_column_file = 'column_right.php';
 
-$bsbt_col_left_class = bsbt_col_class('left');
-$bsbt_col_right_class = bsbt_col_class('right');
-$bsbt_col_center_class = bsbt_col_class('center');
-
 $body_id = ($this_is_home_page) ? 'indexHome' : str_replace('_', '', $_GET['main_page']);
 ?>
 <body id="<?php echo $body_id . 'Body'; ?>"<?php if ($zv_onload != '') echo ' onload="' . $zv_onload . '"'; ?>>
@@ -63,85 +59,64 @@ if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW
     require($template->get_template_dir('tpl_header.php', DIR_WS_TEMPLATE, $current_page_base, 'common') . '/tpl_header.php');
     ?>
 
-    <div class="row">
+    <div class="container">
+
+
         <?php
-        if (!isset($flag_disable_left) || !$flag_disable_left) {
+        if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
+            if ($banner->RecordCount() > 0) {
+                ?>
+                <div class="row">
+                    <div id="bannerThree" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <?php echo zen_display_banner('static', $banner); ?>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+        <!-- bof upload alerts -->
+        <?php if ($messageStack->size('upload') > 0) {
             ?>
-            <div class="<?php echo $bsbt_col_left_class; ?>">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <?php
+                    echo $messageStack->output('upload');
+                    ?>
+                </div>
 
             </div>
             <?php
-        }
-        ?>
-        <div class="<?php echo $bsbt_col_center_class; ?>">
+        } ?>
+        <!-- eof upload alerts -->
 
-            <!-- bof  breadcrumb -->
-            <?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page)) { ?>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div id="navBreadCrumb">
-                            <?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-            <!-- eof breadcrumb -->
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-12">
 
-            <?php
-            if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
-                if ($banner->RecordCount() > 0) {
-                    ?>
-                    <div class="row">
-                        <div id="bannerThree" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <?php echo zen_display_banner('static', $banner); ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-            }
-            ?>
-            <!-- bof upload alerts -->
-            <?php if ($messageStack->size('upload') > 0) {
-                ?>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <?php
-                        echo $messageStack->output('upload');
-                        ?>
-                    </div>
-
-                </div>
-                <?php
-            } ?>
-            <!-- eof upload alerts -->
             <?php
             /**
              * prepares and displays center column
              *
              */
             require($body_code); ?>
-
-            <?php
-            if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
-                if ($banner->RecordCount() > 0) {
-                    ?>
-                    <div class="row">
-                        <div id="bannerFour" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <?php echo zen_display_banner('static', $banner); ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-            }
-            ?>
         </div>
         <?php
         if (!isset($flag_disable_right) || !$flag_disable_right) {
             ?>
-            <div class="<?php echo $bsbt_col_right_class; ?>">
-
-            </div>
             <?php
+        }
+        ?>
+
+        <?php
+        if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
+            if ($banner->RecordCount() > 0) {
+                ?>
+                <div class="row">
+                    <div id="bannerFour" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <?php echo zen_display_banner('static', $banner); ?>
+                    </div>
+                </div>
+                <?php
+            }
         }
         ?>
     </div>
@@ -186,4 +161,9 @@ if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW
     $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
     ?>
 </div>
+<?php
+if (GOOGLE_ANALYTICS_TRACKING_TYPE != "Asynchronous") {
+    require(DIR_WS_TEMPLATE . 'google_analytics/google_analytics.php');
+}
+?>
 </body>
