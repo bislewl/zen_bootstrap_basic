@@ -108,7 +108,6 @@
                 echo $display_qty;
                 echo $the_button;
                 ?>
-                    <button type="submit" class="btn btn-success btn-lg">Add to Cart</button>
             </div>
         <?php } // display qty and button ?>
     <?php } // CUSTOMERS_APPROVAL == 3 ?>

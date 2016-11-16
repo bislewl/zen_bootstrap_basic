@@ -12,26 +12,6 @@
 ?>
 <div class="centerColumn" id="indexDefault">
     <h1 id="indexDefaultHeading"></h1>
-    <div class="container-fluid">
-    	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-    	</div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <img src="images/categories/boxes.jpg" alt="boxes">
-        </div>
-    </div>
     <?php if (DEFINE_MAIN_PAGE_STATUS >= 1 and DEFINE_MAIN_PAGE_STATUS <= 2) { ?>
         <?php
         /**

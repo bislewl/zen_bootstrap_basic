@@ -108,9 +108,6 @@
   define('BOX_SHOPPING_CART_EMPTY', 'Your cart is empty.');
   define('BOX_SHOPPING_CART_DIVIDER', 'ea.-&nbsp;');
 
-// order_history box text in sideboxes/order_history.php
-  define('BOX_HEADING_CUSTOMER_ORDERS', 'Quick Re-Order');
-
 // best_sellers box text in sideboxes/best_sellers.php
   define('BOX_HEADING_BESTSELLERS', 'Bestsellers');
   define('BOX_HEADING_BESTSELLERS_IN', 'Bestsellers in<br />&nbsp;&nbsp;');

@@ -5,7 +5,7 @@
 
 $zc150 = (PROJECT_VERSION_MAJOR > 1 || (PROJECT_VERSION_MAJOR == 1 && substr(PROJECT_VERSION_MINOR, 0, 3) >= 5));
 if ($zc150) { // continue Zen Cart 1.5.0
-    $admin_page = 'configBoxPrinting';
+    $admin_page = 'configBootstrapBasic';
   // delete configuration menu
   $db->Execute("DELETE FROM ".TABLE_ADMIN_PAGES." WHERE page_key = '".$admin_page."' LIMIT 1;");
   // add configuration menu

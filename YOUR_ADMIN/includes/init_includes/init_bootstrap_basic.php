@@ -14,9 +14,9 @@ if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-$module_constant = 'BOX_PRINTING_VERSION'; // This should be a UNIQUE name followed by _VERSION for convention
-$module_installer_directory = DIR_FS_ADMIN . 'includes/installers/box_printing'; // This is the directory your installer is in, usually this is lower case
-$module_name = "Box Printing"; // This should be a plain English or Other in a user friendly way
+$module_constant = 'BOOTSTRAP_BASIC_VERSION'; // This should be a UNIQUE name followed by _VERSION for convention
+$module_installer_directory = DIR_FS_ADMIN . 'includes/installers/bootstrap_basic'; // This is the directory your installer is in, usually this is lower case
+$module_name = "Bootstrap Basic"; // This should be a plain English or Other in a user friendly way
 $zencart_com_plugin_id = 0; // from zencart.com plugins - Leave Zero not to check
 //Just change the stuff above... Nothing down here should need to change
 
