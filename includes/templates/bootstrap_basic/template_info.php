@@ -9,7 +9,7 @@
  * @version Author: bislewl  8/26/2016 1:13 AM Modified in zen_bootstrap_basic
  */
 
-$template_name = 'Bootstrap';
+$template_name = 'Bootstrap Basic';
 $template_version = 'Version BETA';
 $template_author = 'bislewl';
 $template_description = 'Basic Bootstrap Template to build on';
