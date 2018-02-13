@@ -10,7 +10,7 @@
  */
 
 $template_name = 'Bootstrap Basic';
-$template_version = 'Version BETA';
+$template_version = 'Version ';
 $template_author = 'bislewl';
 $template_description = 'Basic Bootstrap Template to build on';
 $template_screenshot = 'scr_template_default.jpg';

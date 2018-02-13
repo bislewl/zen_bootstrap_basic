@@ -38,7 +38,7 @@ if (is_array($list_box_contents) > 0 ) {
       }
     }
 ?>
-<br class="clearBoth" />
+     <div class="clearfix visible-xs"></div>
 <?php
   }
 }

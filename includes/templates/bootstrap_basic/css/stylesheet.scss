@@ -1,48 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Lato|Open+Sans");
-body {
-  font-family: "Open Sans", sans-serif; }
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
+@import "assets/variables";
 
-a {
-  color: #262B51; }
+@import "assets/main";
 
-a:hover {
-  text-decoration: none;
-  color: #6590BC; }
-
-#topHeader {
-  text-align: center;
-  padding: 10px 0px; }
-
-#topHeaderLogo img {
-  max-width: 100%;
-  max-height: 100%; }
-
-#topHeaderTagline {
-  font-size: 1.5em; }
-
-#topHeaderPhone {
-  font-size: 1.5em; }
-
-#topHeaderPhone:hover {
-  text-decoration: none; }
-
-#footerBox {
-  background-color: #CECECE;
-  padding: 10px 0px; }
-
-#footerLinks strong {
-  font-size: 20px;
-  color: #6590BC; }
-
-#footerLinks ul {
-  padding-left: 0px; }
-
-#footerLinks ul li {
-  list-style: none; }
-
-#footerLinks ul li a, #footerLinks ul li a:hover {
-  text-decoration: none;
-  color: #000000; }
+@import "assets/header";
+@import "assets/footer";
 
 /*
 #mainWrapper {
@@ -143,5 +105,3 @@ h1#productListHeading {
     text-align: center;
 }
 */
-
-/*# sourceMappingURL=stylesheet.css.map */

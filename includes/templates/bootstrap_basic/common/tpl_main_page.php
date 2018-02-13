@@ -9,15 +9,14 @@
  * @version Author: bislewl  4/10/2016 9:38 PM Modified in zen_bootstrap_basic
  */
 
-
-if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_HEADER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
-    $flag_disable_header = true;
-}
-
-if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
-    // global disable of column_left
-    $flag_disable_left = true;
-}
+/** bof DESIGNER TESTING ONLY: */
+// $messageStack->add('header', 'this is a sample error message', 'error');
+// $messageStack->add('header', 'this is a sample caution message', 'caution');
+// $messageStack->add('header', 'this is a sample success message', 'success');
+// $messageStack->add('main', 'this is a sample error message', 'error');
+// $messageStack->add('main', 'this is a sample caution message', 'caution');
+// $messageStack->add('main', 'this is a sample success message', 'success');
+/** eof DESIGNER TESTING ONLY */
 
 
 // the following IF statement can be duplicated/modified as needed to set additional flags
@@ -25,15 +24,11 @@ if (in_array($current_page_base, explode(",", 'list_pages_to_skip_all_right_side
     $flag_disable_right = true;
 }
 
-if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_FOOTER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
-    $flag_disable_footer = true;
-}
 
 $header_template = 'tpl_header.php';
 $footer_template = 'tpl_footer.php';
 $left_column_file = 'column_left.php';
 $right_column_file = 'column_right.php';
-
 $body_id = ($this_is_home_page) ? 'indexHome' : str_replace('_', '', $_GET['main_page']);
 ?>
 <body id="<?php echo $body_id . 'Body'; ?>"<?php if ($zv_onload != '') echo ' onload="' . $zv_onload . '"'; ?>>
@@ -41,82 +36,149 @@ $body_id = ($this_is_home_page) ? 'indexHome' : str_replace('_', '', $_GET['main
 if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET1)) {
     if ($banner->RecordCount() > 0) {
         ?>
-        <div class="row">
-            <div id="bannerOne" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php echo zen_display_banner('static', $banner); ?>
+        <div class="<?php echo BOOTSTRAP_BASIC_CONTAINER; ?>">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="bannerOne" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
+                </div>
             </div>
         </div>
         <?php
     }
 }
 ?>
-<div id="mainWrapper" class="container-fluid">
-    <?php
-    /**
-     * prepares and displays header output
-     *
-     */
-    require($template->get_template_dir('tpl_header.php', DIR_WS_TEMPLATE, $current_page_base, 'common') . '/tpl_header.php');
-    ?>
 
+<?php
+/**
+ * prepares and displays header output
+ *
+ */
+if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_HEADER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
+    $flag_disable_header = true;
+}
+?>
+<?php require($template->get_template_dir('tpl_header.php', DIR_WS_TEMPLATE, $current_page_base, 'common') . '/tpl_header.php'); ?>
+
+<!-- bof  breadcrumb -->
+<?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page)) { ?>
     <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+<!-- eof breadcrumb -->
 
-
+<div id="mainWrapper" class="<?php echo BOOTSTRAP_BASIC_CONTAINER; ?>">
+    <div class="row">
         <?php
-        if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
-            if ($banner->RecordCount() > 0) {
+        if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
+            // global disable of column_left
+            $flag_disable_left = true;
+        }
+        if (!isset($flag_disable_left) || !$flag_disable_left) {
+            ?>
+            <div class="<?php echo BOOTSTRAP_BASIC_COL_ONE_CLASS; ?> pull-left">
+                <?php
+                /**
+                 * prepares and displays left column sideboxes
+                 *
+                 */
+                ?>
+                <div id="navColumnOneWrapper" style="width: <?php echo BOX_WIDTH_LEFT; ?>">
+                    <?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php')); ?>
+                </div>
+            </div>
+            <?php
+        }
+
+        ?>
+
+        <div class="<?php echo BOOTSTRAP_BASIC_COL_TWO_CLASS; ?>">
+            <?php
+            if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
+                if ($banner->RecordCount() > 0) {
+                    ?>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div id="bannerThree" class="banners">
+                                <?php echo zen_display_banner('static', $banner); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
+            <!-- bof upload alerts -->
+            <?php
+            if ($messageStack->size('upload') > 0) {
                 ?>
                 <div class="row">
-                    <div id="bannerThree" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <?php echo zen_display_banner('static', $banner); ?>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <?php echo $messageStack->output('upload'); ?>
+                        </div>
                     </div>
                 </div>
                 <?php
             }
-        }
-        ?>
-        <!-- bof upload alerts -->
-        <?php if ($messageStack->size('upload') > 0) {
             ?>
+            <!-- eof upload alerts -->
+
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <?php
-                    echo $messageStack->output('upload');
-                    ?>
+                    /**
+                     * prepares and displays center column
+                     *
+                     */
+                    require($body_code); ?>
                 </div>
-
             </div>
-            <?php
-        } ?>
-        <!-- eof upload alerts -->
-
-        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-12">
 
             <?php
-            /**
-             * prepares and displays center column
-             *
-             */
-            require($body_code); ?>
+            if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
+                if ($banner->RecordCount() > 0) {
+                    ?>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div id="bannerThree" class="banners">
+                                <div id="bannerFour" class="banners">
+                                    <?php echo zen_display_banner('static', $banner); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
         </div>
         <?php
+
+        if (COLUMN_RIGHT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
+            // global disable of column_right
+            $flag_disable_right = true;
+        }
         if (!isset($flag_disable_right) || !$flag_disable_right) {
             ?>
-            <?php
-        }
-        ?>
-
-        <?php
-        if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
-            if ($banner->RecordCount() > 0) {
-                ?>
-                <div class="row">
-                    <div id="bannerFour" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <?php echo zen_display_banner('static', $banner); ?>
-                    </div>
-                </div>
+            <div class="<?php echo BOOTSTRAP_BASIC_COL_THREE_CLASS; ?> pull-right">
                 <?php
-            }
+                /**
+                 * prepares and displays right column sideboxes
+                 *
+                 */
+                ?>
+                <div id="navColumnTwoWrapper" style="width: <?php echo BOX_WIDTH_RIGHT; ?>">
+                    <?php require(DIR_WS_MODULES . zen_get_module_directory('column_right.php')); ?>
+                </div>
+            </div>
+            <?php
         }
         ?>
     </div>
@@ -125,40 +187,93 @@ if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW
      * prepares and displays footer output
      *
      */
-    require($template->get_template_dir('tpl_footer.php', DIR_WS_TEMPLATE, $current_page_base, 'common') . '/tpl_footer.php');
+    if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_FOOTER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
+        $flag_disable_footer = true;
+    }
     ?>
-
-    <!--bof- parse time display -->
-    <?php
-    if (DISPLAY_PAGE_PARSE_TIME == 'true') {
-        ?>
+</div>
+<?php require($template->get_template_dir('tpl_footer.php', DIR_WS_TEMPLATE, $current_page_base, 'common') . '/tpl_footer.php'); ?>
+<!--bof- parse time display -->
+<?php
+if (DISPLAY_PAGE_PARSE_TIME == 'true') {
+    ?>
+    <div class="<?php echo BOOTSTRAP_BASIC_CONTAINER; ?>">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                Parse Time: <?php echo $parse_time; ?> - Number of Queries: <?php echo $db->queryCount(); ?> - Query
-                Time: <?php echo $db->queryTime(); ?>
+                <div class="smallText center">Parse Time: <?php echo $parse_time; ?> - Number of
+                    Queries: <?php echo $db->queryCount(); ?> - Query Time: <?php echo $db->queryTime(); ?></div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+<!--eof- parse time display -->
+<!--bof- banner #6 display -->
+<?php
+if (SHOW_BANNERS_GROUP_SET6 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET6)) {
+    if ($banner->RecordCount() > 0) {
+        ?>
+        <div class="<?php echo BOOTSTRAP_BASIC_CONTAINER; ?>">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="bannerSix" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
+                </div>
             </div>
         </div>
         <?php
     }
-    ?>
-    <!--eof- parse time display -->
-    <!--bof- banner #6 display -->
-    <?php
-    if (SHOW_BANNERS_GROUP_SET6 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET6)) {
-        if ($banner->RecordCount() > 0) {
-            ?>
-            <div class="row">
-                <div id="bannerSix" class="banners col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <?php echo zen_display_banner('static', $banner); ?>
-                </div>
-            </div>
-            <?php
-        }
-    }
-    ?>
-    <!--eof- banner #6 display -->
-    <?php /* add any end-of-page code via an observer class */
-    $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
-    ?>
-</div>
+}
+?>
+<!--eof- banner #6 display -->
+
+<?php /* add any end-of-page code via an observer class */
+$zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'); ?>/jquery.min.js"%3E%3C/script%3E'));</script>
+
+<?php
+/**
+ * load all site-wide jscript_*.js files from includes/templates/YOURTEMPLATE/jscript, alphabetically
+ */
+$directory_array = $template->get_template_part($template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.js');
+while (list ($key, $value) = each($directory_array)) {
+    echo '<script type="text/javascript" src="' . $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value . '"></script>' . "\n";
+}
+
+/**
+ * load all page-specific jscript_*.js files from includes/modules/pages/PAGENAME, alphabetically
+ */
+$directory_array = $template->get_template_part($page_directory, '/^jscript_/', '.js');
+while (list ($key, $value) = each($directory_array)) {
+    echo '<script type="text/javascript" src="' . $page_directory . '/' . $value . '"></script>' . "\n";
+}
+
+/**
+ * load all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically
+ */
+$directory_array = $template->get_template_part($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.php');
+while (list ($key, $value) = each($directory_array)) {
+    /**
+     * include content from all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically.
+     * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
+     */
+    require($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value);
+    echo "\n";
+}
+/**
+ * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
+ */
+$directory_array = $template->get_template_part($page_directory, '/^jscript_/');
+while (list ($key, $value) = each($directory_array)) {
+    /**
+     * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
+     * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
+     */
+    require($page_directory . '/' . $value);
+    echo "\n";
+}
+?>
 </body>

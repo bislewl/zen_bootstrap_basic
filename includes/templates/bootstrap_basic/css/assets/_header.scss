@@ -1,0 +1,21 @@
+#topHeader {
+  text-align: center;
+  padding: 10px 0px;
+}
+
+#topHeaderLogo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#topHeaderTagline {
+  font-size: 1.5em;
+}
+
+#topHeaderPhone {
+  font-size: 1.5em;
+}
+
+#topHeaderPhone:hover {
+  text-decoration: none;
+}

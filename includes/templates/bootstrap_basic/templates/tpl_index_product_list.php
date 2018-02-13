@@ -33,7 +33,9 @@ if (PRODUCT_LIST_CATEGORIES_IMAGE_STATUS == 'true') {
 if ($current_categories_description != '') {
     ?>
     <div id="indexProductListCatDesc" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-        <div id="indexProductListCatDescription" class="content"><?php echo $current_categories_description;  ?></div>
+        <div id="indexProductListCatDescription" class="content">
+            <?php echo $current_categories_description;  ?>
+        </div>
     </div>
 <?php } // categories_description ?>
 
@@ -89,7 +91,7 @@ if ($do_filter_list || ($check_for_alpha->RecordCount() > 0 && PRODUCT_LIST_ALPH
     <?php
 }
 ?>
-<br class="clearBoth" />
+    <div class="clearfix visible-xs"></div>
 
 <?php
 /**
