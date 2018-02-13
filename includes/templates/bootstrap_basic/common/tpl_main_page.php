@@ -230,50 +230,5 @@ if (SHOW_BANNERS_GROUP_SET6 != '' && $banner = zen_banner_exists('dynamic', SHOW
 <?php /* add any end-of-page code via an observer class */
 $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'); ?>/jquery.min.js"%3E%3C/script%3E'));</script>
 
-<?php
-/**
- * load all site-wide jscript_*.js files from includes/templates/YOURTEMPLATE/jscript, alphabetically
- */
-$directory_array = $template->get_template_part($template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.js');
-while (list ($key, $value) = each($directory_array)) {
-    echo '<script type="text/javascript" src="' . $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value . '"></script>' . "\n";
-}
-
-/**
- * load all page-specific jscript_*.js files from includes/modules/pages/PAGENAME, alphabetically
- */
-$directory_array = $template->get_template_part($page_directory, '/^jscript_/', '.js');
-while (list ($key, $value) = each($directory_array)) {
-    echo '<script type="text/javascript" src="' . $page_directory . '/' . $value . '"></script>' . "\n";
-}
-
-/**
- * load all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically
- */
-$directory_array = $template->get_template_part($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.php');
-while (list ($key, $value) = each($directory_array)) {
-    /**
-     * include content from all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically.
-     * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
-     */
-    require($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value);
-    echo "\n";
-}
-/**
- * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
- */
-$directory_array = $template->get_template_part($page_directory, '/^jscript_/');
-while (list ($key, $value) = each($directory_array)) {
-    /**
-     * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
-     * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
-     */
-    require($page_directory . '/' . $value);
-    echo "\n";
-}
-?>
 </body>
