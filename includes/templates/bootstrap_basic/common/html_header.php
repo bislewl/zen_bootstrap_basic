@@ -23,8 +23,9 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
  * output main page HEAD tag and related headers/meta-tags, etc
  */
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php echo HTML_PARAMS; ?>>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,8 +66,8 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
     // EOF hreflang for multilingual sites
     ?>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"/>
     <?php
     /**
      * load all template-specific stylesheets, named like "style*.css", alphabetically
@@ -123,8 +124,53 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
 
     /** CDN for jQuery & bootstrap **/
     ?>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script
+        type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'); ?>/jquery.min.js"%3E%3C/script%3E'));</script>
 
     <?php
+    /**
+     * load all site-wide jscript_*.js files from includes/templates/YOURTEMPLATE/jscript, alphabetically
+     */
+    $directory_array = $template->get_template_part($template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.js');
+    while (list ($key, $value) = each($directory_array)) {
+        echo '<script type="text/javascript" src="' . $template->get_template_dir('.js', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value . '"></script>' . "\n";
+    }
+
+    /**
+     * load all page-specific jscript_*.js files from includes/modules/pages/PAGENAME, alphabetically
+     */
+    $directory_array = $template->get_template_part($page_directory, '/^jscript_/', '.js');
+    while (list ($key, $value) = each($directory_array)) {
+        echo '<script type="text/javascript" src="' . $page_directory . '/' . $value . '"></script>' . "\n";
+    }
+
+    /**
+     * load all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically
+     */
+    $directory_array = $template->get_template_part($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript'), '/^jscript_/', '.php');
+    while (list ($key, $value) = each($directory_array)) {
+        /**
+         * include content from all site-wide jscript_*.php files from includes/templates/YOURTEMPLATE/jscript, alphabetically.
+         * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
+         */
+        require($template->get_template_dir('.php', DIR_WS_TEMPLATE, $current_page_base, 'jscript') . '/' . $value);
+        echo "\n";
+    }
+    /**
+     * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
+     */
+    $directory_array = $template->get_template_part($page_directory, '/^jscript_/');
+    while (list ($key, $value) = each($directory_array)) {
+        /**
+         * include content from all page-specific jscript_*.php files from includes/modules/pages/PAGENAME, alphabetically.
+         * These .PHP files can be manipulated by PHP when they're called, and are copied in-full to the browser page
+         */
+        require($page_directory . '/' . $value);
+        echo "\n";
+    }
+
     // DEBUG: echo '<!-- I SEE cat: ' . $current_category_id . ' || vs cpath: ' . $cPath . ' || page: ' . $current_page . ' || template: ' . $current_template . ' || main = ' . ($this_is_home_page ? 'YES' : 'NO') . ' -->';
     $zco_notifier->notify('NOTIFY_HTML_HEAD_END', $current_page_base);
     ?>
