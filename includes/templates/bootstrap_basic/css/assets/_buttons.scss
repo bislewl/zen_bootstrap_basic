@@ -1,0 +1,24 @@
+$button-color: #F5F5F5;
+$button-bkg: #3B5D7C;
+$button-padding: 5px;
+$button-margin: 5px 2px;
+$button-border: 1px solid #8D8D8D;
+
+$button-hover-color: #456489;
+$button-hover-bkg: #efefef;
+$button-hover-border: 1px solid #646464;
+
+button {
+  color: $button-color;
+  background: $button-bkg;
+  padding: $button-padding;
+  margin: $button-margin;
+  border: $button-border;
+}
+
+button:hover{
+  color: $button-hover-color;
+  background: $button-hover-bkg;
+  border: $button-hover-border;
+}
+

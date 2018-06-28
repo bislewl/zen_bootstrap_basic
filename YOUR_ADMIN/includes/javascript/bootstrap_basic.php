@@ -144,15 +144,16 @@
     function drawListingBootstrapBasic(listingData) {
         $('#bootstrapBasicListing').append('<table class="table table-hover table-responsive"><thead></thead><tbody class="sortableTbody"></tbody></table>');
         var keys = listingData.keys
-        var rowContents = '<th class="bbListingCol-uniqueID"></th>';
+        // var rowContents = '<th class="bbListingCol-uniqueID"></th>';
+        var rowContents = '';
         var rowEditButton = '';
         var rowDeleteButton = '';
         var uniqueID = '';
         var rowClass = '';
         var fieldSpecs = [];
-        var keysDesc = [];
         var filters = false;
         $(keys).each(function (i, key) {
+            var keysDesc = [];
             var displayName = key.display;
             if (key.tooltip !== undefined) {
                 displayName = displayName + key.tooltip;
@@ -161,22 +162,25 @@
                 filters = true;
                 displayName = displayName + '<br/>' + key.filter;
             }
-            keysDesc = [];
+            // keysDesc = [];
             keysDesc['type'] = key.type;
             keysDesc['display'] = key.display;
             keysDesc['name'] = key.name;
             fieldSpecs[key.index] = keysDesc;
-            rowContents = rowContents + '<th class="bbListingCol-'+key.name+'">' + displayName + '</th>';
+            rowContents = rowContents + '<th class="bbListingCol-' + key.name + '">' + displayName + '</th>';
         });
-        rowContents = rowContents + '<th></th>';
+        rowContents = rowContents + '<th></th><th></th>';
         $("#bootstrapBasicListing>table>thead").append('<tr>' + rowContents + '</tr>');
-        $(listingData.values).each(function (index, row) {
+        $(listingData.values).each(function (rindex, row) {
             rowContents = '';
             rowEditButton = '';
             rowDeleteButton = '';
             uniqueID = '';
             rowClass = '';
+
             $.each(row, function (index, value) {
+                console.log(fieldSpecs[index]);
+                console.log(row);
                 var inputField = '';
                 var selected = '';
                 var fieldType = fieldSpecs[index].type;
@@ -199,7 +203,7 @@
                 if (value.select !== undefined) {
                     var fvalue = value.select.value;
                 }
-                if (fvalue == null) {
+                if (fvalue === null) {
                     fvalue = '';
                 }
                 switch (fieldType) {

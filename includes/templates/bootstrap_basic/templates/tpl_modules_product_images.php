@@ -12,12 +12,14 @@ require(DIR_WS_MODULES . zen_get_module_directory(FILENAME_MAIN_PRODUCT_IMAGE));
 require(DIR_WS_MODULES . zen_get_module_directory('additional_images.php'));
 ?>
 <div id="productPhotosBox">
-    <ul id="productPhotos" class="cS-hidden">
+    <ul id="productPhotos">
         <?php
         if (zen_not_null($products_image)) {
             ?>
-            <li data-thumb="<?php echo $products_image_medium; ?>" alt="<?php echo $products_name; ?>">
-                <img src="<?php echo $products_image_medium; ?>" alt="<?php echo $products_name; ?>"/>
+            <li>
+                <a href="<?php echo DIR_WS_IMAGES . $products_image; ?>" data-thumb="<?php echo DIR_WS_IMAGES . $products_image; ?>" alt="<?php echo $products_image_alt; ?>" data-fancybox="productImages" data-caption="<?php echo $products_image_alt; ?>">
+                    <img src="<?php echo DIR_WS_IMAGES . $products_image; ?>" alt="<?php echo $products_image_alt; ?>"/>
+                </a>
             </li>
             <?php
         }
@@ -28,10 +30,12 @@ require(DIR_WS_MODULES . zen_get_module_directory('additional_images.php'));
             foreach ($product_additional_images as $product_additional_image) {
                 if ($product_additional_image['large'] != '') {
                     ?>
-                    <li data-thumb="<?php echo $product_additional_image['large']; ?>"
-                        alt="<?php echo $products_name; ?>">
-                        <img src="<?php echo $product_additional_image['large']; ?>"
-                             alt="<?php echo $products_name; ?>"/>
+                    <li>
+                        <a href="<?php echo DIR_WS_IMAGES . $product_additional_image['large']; ?>" data-thumb="<?php echo DIR_WS_IMAGES . $product_additional_image['large']; ?>"
+                           alt="<?php echo $products_image_alt; ?>" data-fancybox="productImages" data-caption="<?php echo $products_image_alt; ?>">
+                            <img src="<?php echo DIR_WS_IMAGES . $product_additional_image['large']; ?>"
+                                 alt="<?php echo $products_image_alt; ?>"/>
+                        </a>
                     </li>
                     <?php
                 }

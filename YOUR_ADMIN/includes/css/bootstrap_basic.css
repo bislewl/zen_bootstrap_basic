@@ -1,0 +1,68 @@
+#bootstrapBasicPills.nav-pills > li {
+  border-width: 1px 1px 0px 1px;
+  border-color: #333;
+  border-style: solid;
+  background-color: #3B5D7C;
+  font-weight: bold;
+  border-radius: 12px 12px 0px 0px; }
+
+#bootstrapBasicPills.nav-pills > li > a {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 12px 12px 0px 0px;
+  color: #f5f5f5; }
+
+#bootstrapBasicPills.nav-pills > li > a:hover {
+  color: #456489; }
+
+#bootstrapBasicPills.nav-pills > li.active > a, #bootstrapBasicPills.nav-pills > li.active > a:focus, #bootstrapBasicPills.nav-pills > li.active > a:hover {
+  background-color: #333;
+  color: #FFFFFF; }
+
+#bootstrapBasicPillsBox {
+  border-bottom: 1px solid #3B5D7C; }
+
+#bootstrapBasicAddEditBox {
+  padding: 10px 5px;
+  background-color: #D3D3D3; }
+
+.deletedRow {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  -webkit-animation-duration: 100s;
+  animation-duration: 100s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  background-color: #FF0000;
+  color: #FFFFFF; }
+
+.bootstrapBasicToolTip {
+  font-size: 1em;
+  margin-left: 3px; }
+
+#bootstrapBasicListing > table > thead > tr > th {
+  font-size: 1.25em; }
+
+.bootstrapBasicDisplayFilter {
+  font-size: 1.25em;
+  max-width: 100%; }
+
+.sortableTbody tr td:nth-child(-n+2) {
+  cursor: move; }
+
+.bbListingCol-hidden, .bbListingCol-uniqueID, .bbListingCol-bootstrap_basic_menu_id, .bbListingCol-bootstrap_basic_options_id, .bbListingCol-bootstrap_basic_defines_id {
+  display: none; }
+
+.bbListingCol-sort_order {
+  max-width: 100px;
+  text-align: center; }
+
+.bbListingCol-parent_id {
+  max-width: 150px; }
+
+.bbListingCol-text {
+  min-width: 250px; }
+
+/*# sourceMappingURL=bootstrap_basic.css.map */

@@ -1,21 +1,18 @@
 #footerBox {
   background-color: $accent-background;
   padding: 10px 0px;
+  margin: 8px 0;
 }
-
 #footerLinks strong {
   font-size: 20px;
   color: $accent-color;
 }
-
 #footerLinks ul {
   padding-left: 0px;
 }
-
 #footerLinks ul li {
   list-style: none;
 }
-
 #footerLinks ul li a, #footerLinks ul li a:hover {
   text-decoration: none;
   color: #000000;

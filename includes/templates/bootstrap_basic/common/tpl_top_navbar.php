@@ -34,6 +34,9 @@
                         <?php require($template->get_template_dir('tpl_modules_categories_tabs.php', DIR_WS_TEMPLATE, $current_page_base, 'templates') . '/tpl_modules_categories_tabs.php'); ?>
                     </ul>
                 </li>
+	            <?php
+	            echo $bootstrap_basic->getMenuDropdown();
+	            ?>
                 <!--eof categories tabs navigation display-->
                 <?php if ($_SESSION['customer_id']) { ?>
                     <li><a href="<?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>">Logoff</a></li>&nbsp;

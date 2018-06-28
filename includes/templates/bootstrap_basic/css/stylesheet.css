@@ -9,6 +9,18 @@ a:hover {
   text-decoration: none;
   color: #6590BC; }
 
+button {
+  color: #F5F5F5;
+  background: #3B5D7C;
+  padding: 5px;
+  margin: 5px 2px;
+  border: 1px solid #8D8D8D; }
+
+button:hover {
+  color: #456489;
+  background: #efefef;
+  border: 1px solid #646464; }
+
 #topHeader {
   text-align: center;
   padding: 10px 0px; }
@@ -26,9 +38,19 @@ a:hover {
 #topHeaderPhone:hover {
   text-decoration: none; }
 
+.dropdown-menu > ul {
+  padding-left: 5px; }
+
+.dropdown-menu > ul > li {
+  list-style: none; }
+
+.mobileDropDownChevron {
+  margin-left: 5px; }
+
 #footerBox {
   background-color: #CECECE;
-  padding: 10px 0px; }
+  padding: 10px 0px;
+  margin: 8px 0; }
 
 #footerLinks strong {
   font-size: 20px;
@@ -44,104 +66,7 @@ a:hover {
   text-decoration: none;
   color: #000000; }
 
-/*
-#mainWrapper {
-    padding: 0px;
-}
-
-.banners {
-    text-align: center;
-}
-
-.headerMiddleWideRow {
-    width: 100%;
-}
-
-.headerMiddleWideRow li.headerMiddleRight {
-    float: right;
-    background: #F8F8F8;
-    margin-top: 15px;
-    border: 1px solid #E7E7E7;
-}
-
-.topNavigation ul li.headerMiddleRight:hover {
-    background: #E7E7E7;
-}
-
-.topNavigation ul li.headerMiddleRight:hover a {
-    color: #777777;
-}
-
-.headerMiddleContainer {
-    padding: 0px;
-    background: #FFFFFF;
-}
-
-#headerMiddleLogo:hover {
-    background: #FFFFFF;
-}
-
-#footerRow {
-    border-top: 2px solid #000000;
-    margin-top: 20px;
-    background: #F8F8F8;
-}
-
-.footerNav {
-}
-
-.navbar-bottom {
-    border: none;
-}
-
-.footerNav li {
-    color: #000000;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    min-width: 205px;
-}
-
-.footerNav li ul {
-    padding-left: 5px;
-}
-
-.footerNav li ul li {
-    font-size: 14px;
-    padding: 0px;;
-    font-weight: 500;
-    color: #000000;
-    list-style: none;
-}
-
-.footerNav li ul li a {
-    font-size: 1em;
-    padding: 0px;;
-    font-weight: 500;
-    color: #000000;
-    text-decoration: none;
-}
-
-#footerCopyright {
-    background: #F8F8F8;
-}
-
-#siteinfoLegal {
-    border-top: 1px solid;
-}
-
-h1#productListHeading {
-    border-bottom: 1px solid;
-    font-size: 22px;
-    text-align: center;
-    padding: 5px;
-}
-.categoryListBoxContents{
-    text-align: center;
-}
-.centeredContent {
-    text-align: center;
-}
-*/
+#searchReloadSearchButton {
+  margin-left: -5px; }
 
 /*# sourceMappingURL=stylesheet.css.map */

@@ -1,107 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
-@import "assets/variables";
-
+@import "assets/vars";
 @import "assets/main";
-
+@import "assets/buttons";
 @import "assets/header";
 @import "assets/footer";
+@import "assets/custom";
 
-/*
-#mainWrapper {
-    padding: 0px;
+#searchReloadSearchButton{
+  margin-left: -5px;
 }
-
-.banners {
-    text-align: center;
-}
-
-.headerMiddleWideRow {
-    width: 100%;
-}
-
-.headerMiddleWideRow li.headerMiddleRight {
-    float: right;
-    background: #F8F8F8;
-    margin-top: 15px;
-    border: 1px solid #E7E7E7;
-}
-
-.topNavigation ul li.headerMiddleRight:hover {
-    background: #E7E7E7;
-}
-
-.topNavigation ul li.headerMiddleRight:hover a {
-    color: #777777;
-}
-
-.headerMiddleContainer {
-    padding: 0px;
-    background: #FFFFFF;
-}
-
-#headerMiddleLogo:hover {
-    background: #FFFFFF;
-}
-
-#footerRow {
-    border-top: 2px solid #000000;
-    margin-top: 20px;
-    background: #F8F8F8;
-}
-
-.footerNav {
-}
-
-.navbar-bottom {
-    border: none;
-}
-
-.footerNav li {
-    color: #000000;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    min-width: 205px;
-}
-
-.footerNav li ul {
-    padding-left: 5px;
-}
-
-.footerNav li ul li {
-    font-size: 14px;
-    padding: 0px;;
-    font-weight: 500;
-    color: #000000;
-    list-style: none;
-}
-
-.footerNav li ul li a {
-    font-size: 1em;
-    padding: 0px;;
-    font-weight: 500;
-    color: #000000;
-    text-decoration: none;
-}
-
-#footerCopyright {
-    background: #F8F8F8;
-}
-
-#siteinfoLegal {
-    border-top: 1px solid;
-}
-
-h1#productListHeading {
-    border-bottom: 1px solid;
-    font-size: 22px;
-    text-align: center;
-    padding: 5px;
-}
-.categoryListBoxContents{
-    text-align: center;
-}
-.centeredContent {
-    text-align: center;
-}
-*/

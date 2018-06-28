@@ -20,7 +20,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" id="topHeaderTagline">
-                <?php echo HEADER_SALES_TEXT; ?>
+				<?php echo HEADER_SALES_TEXT; ?>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" id="topHeaderPhone">
@@ -34,22 +34,19 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" id="topHeaderSearch">
-                <form action="<?php echo zen_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', $request_type, false); ?>"
-                      class="form-inline">
-                    <div class="form-group">
-                        <?php
-                        echo zen_draw_hidden_field('main_page', FILENAME_ADVANCED_SEARCH_RESULT);
-                        echo zen_draw_hidden_field('search_in_description', '1') . zen_hide_session_id();
-                        ?>
-                        <input name="keyword" type="text" class="form-control"
-                               placeholder="<?php echo BOX_HEADING_SEARCH; ?>">
-                    </div>
-                    <button type="submit" class="btn btn-default"><?php echo BOX_HEADING_SEARCH; ?></button>
-                </form>
+            <div id="searchReloadSearchForm" lass="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<?php
+				echo zen_draw_form('inputSearchReloaded', zen_href_link(FILENAME_SEARCH_RELOADED, '', $request_type, false), 'GET');
+				echo zen_draw_hidden_field('main_page', FILENAME_SEARCH_RELOADED);
+				?>
+                <input type="text" name="keyword" size="20" id="headerSearchBox" placeholder="Search"/>
+                <button type="button" id="searchReloadSearchButton"><i class="fa fa-search"></i>
+                </button>
+                <div id="livesearch"></div>
+				<?php
+				echo '</form>';
+				?>
             </div>
-
-
         </div>
     </div>
 <?php

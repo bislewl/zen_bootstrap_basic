@@ -1,31 +1,25 @@
-@import "assets/variables";
-@import "plugins/lightslider.css";
+@import "assets/vars";
 
 #productName {
   text-align: center;
 }
-
 #productPhotosBox {
   width: 100%;
   background-color: $accent-background;
 }
-
 #productPhotosBox ul {
   list-style: none outside none;
   padding-left: 0;
   margin-bottom: 0;
 }
-
 #productPhotosBox li {
   display: block;
   float: left;
   margin-right: 6px;
   cursor: pointer;
 }
-
 #productPhotosBox img {
   display: block;
   height: auto;
   width: 100%;
 }
-

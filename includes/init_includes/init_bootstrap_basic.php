@@ -12,5 +12,6 @@ if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-require('includes/classes/class.bootstrap_basic.php');
+require_once('includes/classes/class.bootstrap_basic.php');
 $bootstrap_basic = new bootstrap_basic();
+
